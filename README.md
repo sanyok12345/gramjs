@@ -12,7 +12,7 @@ Here you'll learn how to obtain necessary information to create telegram applica
 Install GramJS:
 
 ```bash
-$ npm i telegram
+$ npm i @sanyok12345/telegram
 ```
 
 After installation, you'll need to obtain an API ID and hash:
@@ -28,8 +28,8 @@ When you've successfully created the application, change `apiId` and `apiHash` o
 Then run this code to send a message to yourself.
 
 ```javascript
-import { TelegramClient } from "telegram";
-import { StringSession } from "telegram/sessions";
+import { TelegramClient } from "@sanyok12345/telegram";
+import { StringSession } from "@sanyok12345/telegram/sessions";
 import readline from "readline";
 
 const apiId = 123456;
