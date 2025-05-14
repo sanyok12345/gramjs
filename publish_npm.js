@@ -74,8 +74,8 @@ const oldValueStorage = packageJSON.dependencies["node-localstorage"];
 const oldValueSocks = packageJSON.dependencies["socks"];
 delete packageJSON.dependencies["node-localstorage"];
 delete packageJSON.dependencies["socks"];
-const oldVersion = packageJSON.version.split(".");
-packageJSON.version = oldVersion.join(".") + "-web";
+const oldVersion = packageJSON.version; // сохраняем исходную версию как строку
+packageJSON.version = oldVersion + "-web"; // browser версия
 console.log("browser version is", packageJSON.version);
 fs.writeFileSync(
   "package.json",
@@ -139,8 +139,7 @@ npmi.on("close", (code) => {
         const packageJSON = JSON.parse(fs.readFileSync("package.json", "utf8"));
         packageJSON.dependencies["node-localstorage"] = oldValueStorage;
         packageJSON.dependencies["socks"] = oldValueSocks;
-        const oldVersion = packageJSON.version.split(".");
-        packageJSON.version = oldVersion.join(".");
+        packageJSON.version = oldVersion; // node версия — исходная
         console.log("node version is", packageJSON.version);
         fs.writeFileSync(
           "package.json",
