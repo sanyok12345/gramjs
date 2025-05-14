@@ -75,7 +75,6 @@ const oldValueSocks = packageJSON.dependencies["socks"];
 delete packageJSON.dependencies["node-localstorage"];
 delete packageJSON.dependencies["socks"];
 const oldVersion = packageJSON.version.split(".");
-+oldVersion[2]++;
 packageJSON.version = oldVersion.join(".");
 console.log("browser version is", packageJSON.version);
 fs.writeFileSync(
@@ -141,7 +140,6 @@ npmi.on("close", (code) => {
         packageJSON.dependencies["node-localstorage"] = oldValueStorage;
         packageJSON.dependencies["socks"] = oldValueSocks;
         const oldVersion = packageJSON.version.split(".");
-        +oldVersion[2]++;
         packageJSON.version = oldVersion.join(".");
         console.log("node version is", packageJSON.version);
         fs.writeFileSync(
