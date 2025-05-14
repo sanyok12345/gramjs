@@ -75,7 +75,7 @@ const oldValueSocks = packageJSON.dependencies["socks"];
 delete packageJSON.dependencies["node-localstorage"];
 delete packageJSON.dependencies["socks"];
 const oldVersion = packageJSON.version.split(".");
-packageJSON.version = oldVersion.join(".");
+packageJSON.version = oldVersion.join(".") + "-web";
 console.log("browser version is", packageJSON.version);
 fs.writeFileSync(
   "package.json",
