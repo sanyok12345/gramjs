@@ -97,7 +97,7 @@ npmi.on("close", (code) => {
     throw new Error("Error happened " + code);
   }
 
-  const tsc = exec("tsc");
+  const tsc = exec("npx tsc");
   tsc.stdout.on("data", function (data) {
     console.log("stdout: " + data.toString());
   });
@@ -116,7 +116,7 @@ npmi.on("close", (code) => {
     fs.copyFileSync("gramjs/tl/api.d.ts", "browser/tl/api.d.ts");
     fs.copyFileSync("gramjs/define.d.ts", "browser/define.d.ts");
 
-    const npm_publish = exec("npm publish --tag browser", { cwd: "browser" });
+    const npm_publish = exec("npm publish --tag browser --access public", { cwd: "browser" });
     npm_publish.stdout.on("data", function (data) {
       console.log(data.toString());
     });
@@ -156,7 +156,7 @@ npmi.on("close", (code) => {
             throw new Error("Error happened " + code);
           }
 
-          const tsc = exec("tsc");
+          const tsc = exec("npx tsc");
           tsc.on("close", (code) => {
             if (code === 0) {
               fs.copyFileSync("package.json", "dist/package.json");
@@ -165,7 +165,7 @@ npmi.on("close", (code) => {
               fs.copyFileSync("gramjs/tl/api.d.ts", "dist/tl/api.d.ts");
               fs.copyFileSync("gramjs/define.d.ts", "dist/define.d.ts");
               renameFiles("dist", "delete");
-              const npm_publish = exec("npm publish --tag latest", {
+              const npm_publish = exec("npm publish --tag latest --access public", {
                 cwd: "dist",
               });
               npm_publish.stdout.on("data", function (data) {
