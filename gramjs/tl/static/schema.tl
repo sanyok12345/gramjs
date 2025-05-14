@@ -99,7 +99,6 @@ tlsBlockDomain = TlsBlock;
 tlsBlockGrease seed:int = TlsBlock;
 tlsBlockPublicKey = TlsBlock;
 tlsBlockScope entries:Vector<TlsBlock> = TlsBlock;
-tlsBlockPermutation entries:Vector<Vector<TlsBlock>> = TlsBlock;
 
 ---functions---
 
